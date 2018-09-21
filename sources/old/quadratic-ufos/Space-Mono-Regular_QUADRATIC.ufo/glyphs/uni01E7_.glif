@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni01E7" format="1">
+  <advance width="612"/>
+  <unicode hex="01E7"/>
+  <outline>
+    <contour>
+      <point x="464" y="76" type="line"/>
+      <point x="452" y="76" type="line"/>
+      <point x="428" y="31"/>
+      <point x="345" y="-14"/>
+      <point x="296" y="-14" type="qcurve"/>
+      <point x="246" y="-14"/>
+      <point x="158" y="20"/>
+      <point x="91" y="84"/>
+      <point x="52" y="179"/>
+      <point x="52" y="240" type="qcurve"/>
+      <point x="52" y="256" type="line"/>
+      <point x="52" y="316"/>
+      <point x="92" y="411"/>
+      <point x="158" y="476"/>
+      <point x="246" y="510"/>
+      <point x="294" y="510" type="qcurve"/>
+      <point x="348" y="510"/>
+      <point x="429" y="463"/>
+      <point x="452" y="418" type="qcurve"/>
+      <point x="464" y="418" type="line"/>
+      <point x="464" y="496" type="line"/>
+      <point x="542" y="496" type="line"/>
+      <point x="542" y="-122" type="line"/>
+      <point x="542" y="-156"/>
+      <point x="499" y="-200"/>
+      <point x="465" y="-200" type="qcurve"/>
+      <point x="142" y="-200" type="line"/>
+      <point x="142" y="-128" type="line"/>
+      <point x="437" y="-128" type="line"/>
+      <point x="464" y="-128"/>
+      <point x="464" y="-98" type="qcurve"/>
+    </contour>
+    <contour>
+      <point x="298" y="60" type="qcurve"/>
+      <point x="333" y="60"/>
+      <point x="393" y="86"/>
+      <point x="438" y="134"/>
+      <point x="464" y="201"/>
+      <point x="464" y="242" type="qcurve"/>
+      <point x="464" y="254" type="line"/>
+      <point x="464" y="294"/>
+      <point x="438" y="361"/>
+      <point x="393" y="409"/>
+      <point x="332" y="436"/>
+      <point x="298" y="436" type="qcurve"/>
+      <point x="263" y="436"/>
+      <point x="202" y="410"/>
+      <point x="157" y="362"/>
+      <point x="132" y="296"/>
+      <point x="132" y="256" type="qcurve"/>
+      <point x="132" y="240" type="line"/>
+      <point x="132" y="198"/>
+      <point x="157" y="132"/>
+      <point x="202" y="85"/>
+      <point x="262" y="60"/>
+    </contour>
+    <component base="caron" xOffset="-12"/>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>90</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>294</real>
+      <key>y</key>
+      <real>0</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

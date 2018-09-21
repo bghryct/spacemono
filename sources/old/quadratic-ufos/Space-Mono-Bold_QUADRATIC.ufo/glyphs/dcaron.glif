@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="dcaron" format="1">
+  <advance width="612"/>
+  <unicode hex="010F"/>
+  <outline>
+    <contour>
+      <point x="270" y="40" type="line"/>
+      <point x="252" y="40" type="line"/>
+      <point x="244" y="13"/>
+      <point x="199" y="-14"/>
+      <point x="164" y="-14" type="qcurve"/>
+      <point x="89" y="-14"/>
+      <point x="18" y="110"/>
+      <point x="18" y="235" type="qcurve"/>
+      <point x="18" y="269" type="line"/>
+      <point x="18" y="398"/>
+      <point x="96" y="510"/>
+      <point x="164" y="510" type="qcurve"/>
+      <point x="197" y="510"/>
+      <point x="246" y="478"/>
+      <point x="252" y="454" type="qcurve"/>
+      <point x="270" y="454" type="line"/>
+      <point x="270" y="700" type="line"/>
+      <point x="396" y="700" type="line"/>
+      <point x="396" y="0" type="line"/>
+      <point x="270" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="209" y="390" type="qcurve"/>
+      <point x="174" y="390"/>
+      <point x="144" y="329"/>
+      <point x="144" y="263" type="qcurve"/>
+      <point x="144" y="233" type="line"/>
+      <point x="144" y="167"/>
+      <point x="174" y="106"/>
+      <point x="209" y="106" type="qcurve"/>
+      <point x="241" y="106"/>
+      <point x="270" y="153"/>
+      <point x="270" y="194" type="qcurve"/>
+      <point x="270" y="302" type="line"/>
+      <point x="270" y="343"/>
+      <point x="241" y="390"/>
+    </contour>
+    <contour>
+      <point x="600" y="496" type="line"/>
+      <point x="600" y="458"/>
+      <point x="548" y="406"/>
+      <point x="510" y="406" type="qcurve"/>
+      <point x="450" y="406" type="line"/>
+      <point x="450" y="484" type="line"/>
+      <point x="495" y="484" type="line"/>
+      <point x="522" y="484"/>
+      <point x="522" y="514" type="qcurve"/>
+      <point x="522" y="526" type="line"/>
+      <point x="513" y="526" type="line"/>
+      <point x="495" y="526"/>
+      <point x="464" y="540"/>
+      <point x="440" y="564"/>
+      <point x="426" y="595"/>
+      <point x="426" y="613" type="qcurve"/>
+      <point x="426" y="631"/>
+      <point x="440" y="662"/>
+      <point x="464" y="686"/>
+      <point x="495" y="700"/>
+      <point x="513" y="700" type="qcurve"/>
+      <point x="531" y="700"/>
+      <point x="562" y="686"/>
+      <point x="586" y="662"/>
+      <point x="600" y="631"/>
+      <point x="600" y="613" type="qcurve"/>
+    </contour>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>0</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>0</real>
+      <key>y</key>
+      <real>394</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

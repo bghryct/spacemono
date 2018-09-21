@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni1EBB" format="1">
+  <advance width="612"/>
+  <unicode hex="1EBB"/>
+  <outline>
+    <contour>
+      <point x="260" y="546" type="line"/>
+      <point x="240" y="638" type="line"/>
+      <point x="240" y="644" type="line"/>
+      <point x="316" y="644" type="line"/>
+      <point x="323" y="630"/>
+      <point x="341" y="630" type="qcurve"/>
+      <point x="355" y="630"/>
+      <point x="376" y="650"/>
+      <point x="376" y="668" type="qcurve"/>
+      <point x="376" y="690"/>
+      <point x="351" y="710"/>
+      <point x="336" y="710" type="qcurve"/>
+      <point x="314" y="710"/>
+      <point x="291" y="685"/>
+      <point x="288" y="670" type="qcurve"/>
+      <point x="240" y="688" type="line"/>
+      <point x="248" y="718"/>
+      <point x="294" y="758"/>
+      <point x="337" y="758" type="qcurve"/>
+      <point x="376" y="758"/>
+      <point x="430" y="709"/>
+      <point x="430" y="667" type="qcurve"/>
+      <point x="430" y="632"/>
+      <point x="389" y="582"/>
+      <point x="354" y="582" type="qcurve"/>
+      <point x="313" y="582"/>
+      <point x="300" y="614" type="qcurve"/>
+      <point x="294" y="614" type="line"/>
+      <point x="309" y="546" type="line"/>
+    </contour>
+    <component base="e" xOffset="-1"/>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>0</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>0</real>
+      <key>y</key>
+      <real>546</real>
+    </dict>
+    <dict>
+      <key>angle</key>
+      <real>90</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>309</real>
+      <key>y</key>
+      <real>0</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

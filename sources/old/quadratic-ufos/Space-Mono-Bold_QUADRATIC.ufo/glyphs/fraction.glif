@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="fraction" format="1">
+  <advance width="612"/>
+  <unicode hex="2044"/>
+  <outline>
+    <contour>
+      <point x="521" y="510" type="line"/>
+      <point x="562" y="432" type="line"/>
+      <point x="90" y="190" type="line"/>
+      <point x="49" y="268" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>0</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>0</real>
+      <key>y</key>
+      <real>350</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

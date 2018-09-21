@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="dagger.cap" format="1">
+  <advance width="612"/>
+  <outline>
+    <contour>
+      <point x="157" y="0" type="line"/>
+      <point x="265" y="0" type="line"/>
+      <point x="355" y="422" type="line"/>
+      <point x="534" y="422" type="line"/>
+      <point x="534" y="528" type="line"/>
+      <point x="377" y="528" type="line"/>
+      <point x="414" y="700" type="line"/>
+      <point x="306" y="700" type="line"/>
+      <point x="269" y="528" type="line"/>
+      <point x="90" y="528" type="line"/>
+      <point x="90" y="422" type="line"/>
+      <point x="247" y="422" type="line"/>
+    </contour>
+  </outline>
+</glyph>

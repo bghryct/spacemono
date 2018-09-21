@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="IJacute" format="1">
+  <advance width="612"/>
+  <outline>
+    <contour>
+      <point x="133" y="700" type="line"/>
+      <point x="57" y="342" type="line"/>
+      <point x="189" y="342" type="line"/>
+      <point x="265" y="700" type="line"/>
+    </contour>
+    <component base="J" xOffset="3"/>
+    <component base="acute" xOffset="-100" yOffset="204"/>
+    <component base="acute" xOffset="197" yOffset="204"/>
+  </outline>
+</glyph>

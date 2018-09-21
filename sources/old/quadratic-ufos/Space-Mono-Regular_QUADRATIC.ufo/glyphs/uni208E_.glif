@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni208E" format="1">
+  <advance width="612"/>
+  <unicode hex="208E"/>
+  <outline>
+    <contour>
+      <point x="226" y="-261" type="line"/>
+      <point x="253" y="-261"/>
+      <point x="300" y="-240"/>
+      <point x="336" y="-202"/>
+      <point x="356" y="-149"/>
+      <point x="356" y="-117" type="qcurve"/>
+      <point x="356" y="5" type="line"/>
+      <point x="356" y="37"/>
+      <point x="336" y="90"/>
+      <point x="300" y="128"/>
+      <point x="253" y="149"/>
+      <point x="226" y="149" type="qcurve"/>
+      <point x="208" y="149" type="line"/>
+      <point x="208" y="197" type="line"/>
+      <point x="226" y="197" type="line"/>
+      <point x="262" y="197"/>
+      <point x="327" y="171"/>
+      <point x="375" y="122"/>
+      <point x="404" y="52"/>
+      <point x="404" y="7" type="qcurve"/>
+      <point x="404" y="-119" type="line"/>
+      <point x="404" y="-164"/>
+      <point x="375" y="-234"/>
+      <point x="327" y="-283"/>
+      <point x="262" y="-309"/>
+      <point x="226" y="-309" type="qcurve"/>
+      <point x="208" y="-309" type="line"/>
+      <point x="208" y="-261" type="line"/>
+    </contour>
+  </outline>
+</glyph>

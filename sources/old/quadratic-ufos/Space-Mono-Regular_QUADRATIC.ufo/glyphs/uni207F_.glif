@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni207F" format="1">
+  <advance width="612"/>
+  <unicode hex="207F"/>
+  <outline>
+    <contour>
+      <point x="240" y="412" type="line"/>
+      <point x="186" y="412" type="line"/>
+      <point x="186" y="700" type="line"/>
+      <point x="240" y="700" type="line"/>
+      <point x="240" y="660" type="line"/>
+      <point x="246" y="660" type="line"/>
+      <point x="257" y="681"/>
+      <point x="300" y="706"/>
+      <point x="330" y="706" type="qcurve"/>
+      <point x="381" y="706"/>
+      <point x="438" y="646"/>
+      <point x="438" y="586" type="qcurve"/>
+      <point x="438" y="412" type="line"/>
+      <point x="384" y="412" type="line"/>
+      <point x="384" y="576" type="line"/>
+      <point x="384" y="658"/>
+      <point x="314" y="658" type="qcurve"/>
+      <point x="275" y="658"/>
+      <point x="240" y="607"/>
+      <point x="240" y="566" type="qcurve"/>
+    </contour>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>0</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>0</real>
+      <key>y</key>
+      <real>412</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

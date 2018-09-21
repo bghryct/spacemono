@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="IJacute.alt" format="1">
+  <advance width="612"/>
+  <outline>
+    <component base="acute" xOffset="-79" yOffset="200"/>
+    <component base="acute" xOffset="240" yOffset="200"/>
+    <component base="IJ.alt"/>
+  </outline>
+</glyph>

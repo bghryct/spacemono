@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni1EF5.alt" format="1">
+  <advance width="612"/>
+  <outline>
+    <contour>
+      <point x="541" y="-140" type="qcurve"/>
+      <point x="541" y="-160"/>
+      <point x="526" y="-195"/>
+      <point x="500" y="-220"/>
+      <point x="465" y="-235"/>
+      <point x="446" y="-235" type="qcurve"/>
+      <point x="426" y="-235"/>
+      <point x="392" y="-220"/>
+      <point x="366" y="-195"/>
+      <point x="351" y="-160"/>
+      <point x="351" y="-140" type="qcurve"/>
+      <point x="351" y="-120"/>
+      <point x="366" y="-85"/>
+      <point x="392" y="-60"/>
+      <point x="426" y="-45"/>
+      <point x="446" y="-45" type="qcurve"/>
+      <point x="465" y="-45"/>
+      <point x="500" y="-60"/>
+      <point x="526" y="-85"/>
+      <point x="541" y="-120"/>
+    </contour>
+    <component base="y.alt"/>
+  </outline>
+</glyph>

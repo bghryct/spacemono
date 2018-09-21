@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni1E5D.alt" format="1">
+  <advance width="612"/>
+  <outline>
+    <component base="r.alt"/>
+    <component base="macron" xOffset="78"/>
+  </outline>
+</glyph>

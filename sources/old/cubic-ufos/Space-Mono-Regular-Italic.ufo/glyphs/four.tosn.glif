@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="four.tosn" format="1">
+  <advance width="612"/>
+  <outline>
+    <contour>
+      <point x="325" y="496" type="line"/>
+      <point x="325" y="496"/>
+      <point x="495" y="496"/>
+      <point x="495" y="496" type="curve"/>
+      <point x="495" y="496"/>
+      <point x="406" y="78"/>
+      <point x="406" y="78" type="curve"/>
+      <point x="406" y="78"/>
+      <point x="508" y="78"/>
+      <point x="508" y="78" type="curve"/>
+      <point x="508" y="78"/>
+      <point x="508" y="0"/>
+      <point x="508" y="0" type="curve"/>
+      <point x="508" y="0"/>
+      <point x="389" y="0"/>
+      <point x="389" y="0" type="curve"/>
+      <point x="389" y="0"/>
+      <point x="348" y="-194"/>
+      <point x="348" y="-194" type="curve"/>
+      <point x="348" y="-194"/>
+      <point x="264" y="-194"/>
+      <point x="264" y="-194" type="curve"/>
+      <point x="264" y="-194"/>
+      <point x="305" y="0"/>
+      <point x="305" y="0" type="curve"/>
+      <point x="305" y="0"/>
+      <point x="10" y="0"/>
+      <point x="10" y="0" type="curve"/>
+      <point x="10" y="114" type="line"/>
+    </contour>
+    <contour>
+      <point x="82" y="90" type="line"/>
+      <point x="82" y="78" type="line"/>
+      <point x="82" y="78"/>
+      <point x="322" y="78"/>
+      <point x="322" y="78" type="curve"/>
+      <point x="322" y="78"/>
+      <point x="403" y="460"/>
+      <point x="403" y="460" type="curve"/>
+      <point x="403" y="460"/>
+      <point x="391" y="460"/>
+      <point x="391" y="460" type="curve"/>
+    </contour>
+  </outline>
+</glyph>

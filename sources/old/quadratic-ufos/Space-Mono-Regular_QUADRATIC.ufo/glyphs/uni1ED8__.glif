@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni1ED8" format="1">
+  <advance width="612"/>
+  <unicode hex="1ED8"/>
+  <outline>
+    <component base="O"/>
+    <component base="circumflex" yOffset="204"/>
+    <component base="period" yOffset="-190"/>
+  </outline>
+</glyph>

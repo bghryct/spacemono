@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="bracketleft" format="1">
+  <advance width="612"/>
+  <unicode hex="005B"/>
+  <outline>
+    <contour>
+      <point x="264" y="778" type="line"/>
+      <point x="264" y="812"/>
+      <point x="307" y="856"/>
+      <point x="341" y="856" type="qcurve"/>
+      <point x="438" y="856" type="line"/>
+      <point x="438" y="784" type="line"/>
+      <point x="369" y="784" type="line"/>
+      <point x="342" y="784"/>
+      <point x="342" y="754" type="qcurve"/>
+      <point x="342" y="-54" type="line"/>
+      <point x="342" y="-84"/>
+      <point x="369" y="-84" type="qcurve"/>
+      <point x="438" y="-84" type="line"/>
+      <point x="438" y="-156" type="line"/>
+      <point x="341" y="-156" type="line"/>
+      <point x="307" y="-156"/>
+      <point x="264" y="-112"/>
+      <point x="264" y="-78" type="qcurve"/>
+    </contour>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>90</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>424</real>
+      <key>y</key>
+      <real>0</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

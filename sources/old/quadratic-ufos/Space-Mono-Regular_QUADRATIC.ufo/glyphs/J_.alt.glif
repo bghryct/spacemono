@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="J.alt" format="1">
+  <advance width="612"/>
+  <outline>
+    <contour>
+      <point x="514" y="210" type="line"/>
+      <point x="514" y="101"/>
+      <point x="407" y="-14"/>
+      <point x="304" y="-14" type="qcurve"/>
+      <point x="201" y="-14"/>
+      <point x="82" y="101"/>
+      <point x="82" y="210" type="qcurve"/>
+      <point x="82" y="264" type="line"/>
+      <point x="166" y="264" type="line"/>
+      <point x="166" y="210" type="line"/>
+      <point x="166" y="144"/>
+      <point x="234" y="62"/>
+      <point x="304" y="62" type="qcurve"/>
+      <point x="339" y="62"/>
+      <point x="387" y="83"/>
+      <point x="417" y="122"/>
+      <point x="430" y="177"/>
+      <point x="430" y="210" type="qcurve"/>
+      <point x="430" y="700" type="line"/>
+      <point x="514" y="700" type="line"/>
+    </contour>
+  </outline>
+</glyph>

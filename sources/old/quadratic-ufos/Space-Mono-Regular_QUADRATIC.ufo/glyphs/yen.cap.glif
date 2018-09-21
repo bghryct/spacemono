@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="yen.cap" format="1">
+  <advance width="612"/>
+  <outline>
+    <contour>
+      <point x="211" y="318" type="line"/>
+      <point x="27" y="700" type="line"/>
+      <point x="121" y="700" type="line"/>
+      <point x="300" y="318" type="line"/>
+      <point x="312" y="318" type="line"/>
+      <point x="491" y="700" type="line"/>
+      <point x="585" y="700" type="line"/>
+      <point x="400" y="318" type="line"/>
+      <point x="531" y="318" type="line"/>
+      <point x="531" y="240" type="line"/>
+      <point x="348" y="240" type="line"/>
+      <point x="348" y="204" type="line"/>
+      <point x="531" y="204" type="line"/>
+      <point x="531" y="126" type="line"/>
+      <point x="348" y="126" type="line"/>
+      <point x="348" y="0" type="line"/>
+      <point x="264" y="0" type="line"/>
+      <point x="264" y="126" type="line"/>
+      <point x="81" y="126" type="line"/>
+      <point x="81" y="204" type="line"/>
+      <point x="264" y="204" type="line"/>
+      <point x="264" y="240" type="line"/>
+      <point x="81" y="240" type="line"/>
+      <point x="81" y="318" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>90</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>306</real>
+      <key>y</key>
+      <real>0</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni20B9" format="1">
+  <advance width="612"/>
+  <unicode hex="20B9"/>
+  <outline>
+    <contour>
+      <point x="128" y="598" type="line"/>
+      <point x="494" y="598" type="line"/>
+      <point x="494" y="526" type="line"/>
+      <point x="415" y="526" type="line"/>
+      <point x="415" y="520" type="line"/>
+      <point x="429" y="506"/>
+      <point x="432" y="485" type="qcurve"/>
+      <point x="494" y="485" type="line"/>
+      <point x="494" y="413" type="line"/>
+      <point x="429" y="413" type="line"/>
+      <point x="423" y="392"/>
+      <point x="393" y="358"/>
+      <point x="370" y="348" type="qcurve"/>
+      <point x="370" y="336" type="line"/>
+      <point x="391" y="333"/>
+      <point x="416" y="306"/>
+      <point x="416" y="283" type="qcurve"/>
+      <point x="416" y="102" type="line"/>
+      <point x="338" y="102" type="line"/>
+      <point x="338" y="262" type="line"/>
+      <point x="338" y="280"/>
+      <point x="322" y="300"/>
+      <point x="300" y="300" type="qcurve"/>
+      <point x="128" y="300" type="line"/>
+      <point x="128" y="372" type="line"/>
+      <point x="270" y="372" type="line"/>
+      <point x="332" y="372"/>
+      <point x="349" y="413" type="qcurve"/>
+      <point x="128" y="413" type="line"/>
+      <point x="128" y="485" type="line"/>
+      <point x="349" y="485" type="line"/>
+      <point x="332" y="526"/>
+      <point x="270" y="526" type="qcurve"/>
+      <point x="128" y="526" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>0</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>0</real>
+      <key>y</key>
+      <real>102</real>
+    </dict>
+    <dict>
+      <key>angle</key>
+      <real>0</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>0</real>
+      <key>y</key>
+      <real>598</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="paragraph.cap" format="1">
+  <advance width="612"/>
+  <outline>
+    <contour>
+      <point x="336" y="700" type="line" smooth="yes"/>
+      <point x="171" y="700"/>
+      <point x="77" y="597"/>
+      <point x="77" y="465" type="curve" smooth="yes"/>
+      <point x="77" y="350"/>
+      <point x="163" y="284"/>
+      <point x="251" y="284" type="curve" smooth="yes"/>
+      <point x="257" y="284" type="line"/>
+      <point x="197" y="0" type="line"/>
+      <point x="305" y="0" type="line"/>
+      <point x="432" y="598" type="line"/>
+      <point x="474" y="598" type="line"/>
+      <point x="347" y="0" type="line"/>
+      <point x="455" y="0" type="line"/>
+      <point x="601" y="688" type="line"/>
+      <point x="601" y="700" type="line"/>
+    </contour>
+    <contour>
+      <point x="312" y="598" type="curve"/>
+      <point x="324" y="598" type="line"/>
+      <point x="279" y="386" type="line"/>
+      <point x="267" y="386" type="line" smooth="yes"/>
+      <point x="232" y="386"/>
+      <point x="188" y="414"/>
+      <point x="188" y="472" type="curve" smooth="yes"/>
+      <point x="188" y="533"/>
+      <point x="224" y="598"/>
+    </contour>
+  </outline>
+</glyph>

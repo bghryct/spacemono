@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="braceleft" format="1">
+  <advance width="612"/>
+  <unicode hex="007B"/>
+  <outline>
+    <contour>
+      <point x="234" y="249" type="line"/>
+      <point x="235" y="254"/>
+      <point x="235" y="256"/>
+      <point x="235" y="258" type="qcurve"/>
+      <point x="235" y="278"/>
+      <point x="212" y="278" type="qcurve"/>
+      <point x="162" y="278" type="line"/>
+      <point x="162" y="422" type="line"/>
+      <point x="244" y="422" type="line"/>
+      <point x="271" y="422"/>
+      <point x="277" y="451" type="qcurve"/>
+      <point x="341" y="754" type="line"/>
+      <point x="351" y="799"/>
+      <point x="420" y="856"/>
+      <point x="465" y="856" type="qcurve"/>
+      <point x="584" y="856" type="line"/>
+      <point x="584" y="736" type="line"/>
+      <point x="491" y="736" type="line"/>
+      <point x="463" y="736"/>
+      <point x="457" y="706" type="qcurve"/>
+      <point x="400" y="437" type="line"/>
+      <point x="392" y="403"/>
+      <point x="340" y="359"/>
+      <point x="305" y="359" type="qcurve"/>
+      <point x="296" y="359" type="line"/>
+      <point x="296" y="341" type="line"/>
+      <point x="302" y="341" type="line"/>
+      <point x="332" y="341"/>
+      <point x="365" y="307"/>
+      <point x="365" y="281" type="qcurve"/>
+      <point x="365" y="276"/>
+      <point x="364" y="268"/>
+      <point x="363" y="263" type="qcurve"/>
+      <point x="306" y="-6" type="line"/>
+      <point x="305" y="-11"/>
+      <point x="305" y="-14"/>
+      <point x="305" y="-16" type="qcurve"/>
+      <point x="305" y="-36"/>
+      <point x="328" y="-36" type="qcurve"/>
+      <point x="400" y="-36" type="line"/>
+      <point x="400" y="-156" type="line"/>
+      <point x="267" y="-156" type="line"/>
+      <point x="222" y="-156"/>
+      <point x="169" y="-112"/>
+      <point x="169" y="-70" type="qcurve"/>
+      <point x="169" y="-62"/>
+      <point x="171" y="-47"/>
+      <point x="173" y="-39" type="qcurve"/>
+    </contour>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>0</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>0</real>
+      <key>y</key>
+      <real>263</real>
+    </dict>
+    <dict>
+      <key>angle</key>
+      <real>90</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>363</real>
+      <key>y</key>
+      <real>0</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="scedilla" format="1">
+  <advance width="612"/>
+  <unicode hex="015F"/>
+  <outline>
+    <contour>
+      <point x="190" y="368" type="qcurve"/>
+      <point x="190" y="332"/>
+      <point x="251" y="294"/>
+      <point x="332" y="288" type="qcurve"/>
+      <point x="419" y="281"/>
+      <point x="510" y="212"/>
+      <point x="510" y="146" type="qcurve"/>
+      <point x="510" y="140" type="line"/>
+      <point x="510" y="104"/>
+      <point x="481" y="47"/>
+      <point x="430" y="7"/>
+      <point x="357" y="-14"/>
+      <point x="314" y="-14" type="qcurve"/>
+      <point x="306" y="-14" type="line"/>
+      <point x="294" y="-68" type="line"/>
+      <point x="300" y="-68" type="line"/>
+      <point x="313" y="-36"/>
+      <point x="354" y="-36" type="qcurve"/>
+      <point x="389" y="-36"/>
+      <point x="430" y="-86"/>
+      <point x="430" y="-121" type="qcurve"/>
+      <point x="430" y="-163"/>
+      <point x="376" y="-212"/>
+      <point x="337" y="-212" type="qcurve"/>
+      <point x="294" y="-212"/>
+      <point x="248" y="-172"/>
+      <point x="240" y="-142" type="qcurve"/>
+      <point x="288" y="-124" type="line"/>
+      <point x="291" y="-139"/>
+      <point x="314" y="-164"/>
+      <point x="336" y="-164" type="qcurve"/>
+      <point x="351" y="-164"/>
+      <point x="376" y="-144"/>
+      <point x="376" y="-122" type="qcurve"/>
+      <point x="376" y="-104"/>
+      <point x="355" y="-84"/>
+      <point x="341" y="-84" type="qcurve"/>
+      <point x="323" y="-84"/>
+      <point x="316" y="-98" type="qcurve"/>
+      <point x="240" y="-98" type="line"/>
+      <point x="240" y="-92" type="line"/>
+      <point x="258" y="-9" type="line"/>
+      <point x="215" y="-2"/>
+      <point x="153" y="33"/>
+      <point x="111" y="81"/>
+      <point x="90" y="137"/>
+      <point x="88" y="166" type="qcurve"/>
+      <point x="162" y="184" type="line"/>
+      <point x="167" y="127"/>
+      <point x="245" y="58"/>
+      <point x="310" y="58" type="qcurve"/>
+      <point x="365" y="58"/>
+      <point x="432" y="101"/>
+      <point x="432" y="140" type="qcurve"/>
+      <point x="432" y="182"/>
+      <point x="366" y="218"/>
+      <point x="292" y="223" type="qcurve"/>
+      <point x="206" y="229"/>
+      <point x="114" y="297"/>
+      <point x="114" y="362" type="qcurve"/>
+      <point x="114" y="368" type="line"/>
+      <point x="114" y="403"/>
+      <point x="144" y="456"/>
+      <point x="195" y="492"/>
+      <point x="259" y="510"/>
+      <point x="294" y="510" type="qcurve"/>
+      <point x="343" y="510"/>
+      <point x="417" y="483"/>
+      <point x="467" y="440"/>
+      <point x="494" y="384"/>
+      <point x="498" y="356" type="qcurve"/>
+      <point x="424" y="338" type="line"/>
+      <point x="419" y="386"/>
+      <point x="352" y="440"/>
+      <point x="298" y="440" type="qcurve"/>
+      <point x="277" y="440"/>
+      <point x="238" y="431"/>
+      <point x="208" y="413"/>
+      <point x="190" y="386"/>
+    </contour>
+  </outline>
+  <lib>
+  <dict>
+  <key>com.typemytype.robofont.guides</key>
+  <array>
+    <dict>
+      <key>angle</key>
+      <real>90</real>
+      <key>isGlobal</key>
+      <false/>
+      <key>magnetic</key>
+      <integer>5</integer>
+      <key>x</key>
+      <real>321</real>
+      <key>y</key>
+      <real>0</real>
+    </dict>
+  </array>
+  </dict>
+  </lib>
+</glyph>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="uni1EB3.alt" format="1">
+  <advance width="612"/>
+  <outline>
+    <contour>
+      <point x="386" y="718" type="line"/>
+      <point x="386" y="786" type="line"/>
+      <point x="392" y="786" type="line"/>
+      <point x="400" y="766"/>
+      <point x="418" y="754"/>
+      <point x="444" y="754" type="curve" smooth="yes"/>
+      <point x="495" y="754"/>
+      <point x="535" y="796"/>
+      <point x="535" y="846" type="curve" smooth="yes"/>
+      <point x="535" y="894"/>
+      <point x="499" y="930"/>
+      <point x="449" y="930" type="curve" smooth="yes"/>
+      <point x="397" y="930"/>
+      <point x="364" y="900"/>
+      <point x="347" y="860" type="curve"/>
+      <point x="391" y="842" type="line"/>
+      <point x="400" y="862"/>
+      <point x="415" y="882"/>
+      <point x="444" y="882" type="curve" smooth="yes"/>
+      <point x="467" y="882"/>
+      <point x="480" y="866"/>
+      <point x="480" y="844" type="curve" smooth="yes"/>
+      <point x="480" y="821"/>
+      <point x="464" y="802"/>
+      <point x="440" y="802" type="curve" smooth="yes"/>
+      <point x="428" y="802"/>
+      <point x="419" y="806"/>
+      <point x="414" y="816" type="curve"/>
+      <point x="342" y="816" type="line"/>
+      <point x="337" y="810" type="line"/>
+      <point x="337" y="718" type="line"/>
+    </contour>
+    <component base="a.alt"/>
+    <component base="breve" xOffset="-15"/>
+  </outline>
+</glyph>
