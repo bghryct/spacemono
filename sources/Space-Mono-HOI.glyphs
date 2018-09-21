@@ -7864,7 +7864,7 @@ unicode = 0064;
 },
 {
 glyphname = e;
-lastChange = "2018-09-21 14:23:49 +0000";
+lastChange = "2018-09-21 18:05:06 +0000";
 layers = (
 {
 layerId = "FBAFFF81-1F8B-4B58-9158-C4AF3F48F88C";
@@ -22078,7 +22078,7 @@ y = 424;
 {
 export = 0;
 glyphname = ampersand;
-lastChange = "2018-09-16 21:49:09 +0000";
+lastChange = "2018-09-21 18:05:26 +0000";
 layers = (
 {
 layerId = "FBAFFF81-1F8B-4B58-9158-C4AF3F48F88C";
