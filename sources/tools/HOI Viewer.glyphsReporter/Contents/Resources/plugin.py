@@ -17,15 +17,22 @@ from GlyphsApp import *
 from GlyphsApp.plugins import *
 # from Cocoa import NSBezierPath
 import math
+import re
 
 class viewHOI(ReporterPlugin):
-	sliderView = objc.IBOutlet()  # the dialog view (e.g., panel or window)
+	# the dialog view (e.g., panel or window)
+	sliderView = objc.IBOutlet()
+
+	# the sliders and button placed inside the view
+	# TODO: slider number should be based on number of axes (there will be no limit with Glyphs App 3.0)
 	slider1 = objc.IBOutlet()
 	slider2 = objc.IBOutlet() 
 	slider3 = objc.IBOutlet() 
-	slider4 = objc.IBOutlet()       # the slider placed inside the view
+	slider4 = objc.IBOutlet()
 	button = objc.IBOutlet()
 
+	# Axis variables
+	# TODO eventually: Fetch these values + determine number of axes
 	weightValue = 84.0
 	slantValue = 0.0
 	italicValue = 0.0
@@ -33,12 +40,16 @@ class viewHOI(ReporterPlugin):
 	selection = []
 	nodeType = []
 	angleTolerance = 5.0
+	# lastState = GSPath()
 
 	def settings(self):
 		# Load .nib file next to plugin.py
 		self.loadNib("sliderView", __file__)
 		self.menuName = Glyphs.localize({'en': u'HOI Viewer', 'de': u'Mein Plugin'})
+		# Load slider view as a right-click context menu
 		self.generalContextMenus = [{'name': 'HOI Viewer', 'view': self.sliderView}]
+		# set min/max values for sliders
+		# TODO: pull these values from the file
 		self.slider1.setMinValue_(84.0)
 		self.slider1.setMaxValue_(132.0)
 		self.slider2.setMinValue_(0.0)
@@ -48,6 +59,7 @@ class viewHOI(ReporterPlugin):
 		self.slider4.setMinValue_(0.0)
 		self.slider4.setMaxValue_(1000.0)
 
+	# Updates the temp instance and the drawings based on the sliders
 	def sliderUpdate(self):
 		self.weightValue = self.slider1.floatValue()
 		self.slantValue = self.slider2.floatValue()
@@ -55,7 +67,7 @@ class viewHOI(ReporterPlugin):
 		self.monoValue = self.slider4.floatValue()
 
 		layer = Glyphs.font.selectedLayers[0]
-		currentGlyph = layer.parent.name
+		currentGlyphName = layer.parent.name
 
 		tempInstance = layer.parent.parent.instances[0].copy()
 		tempInstance.name = "tempInstance"
@@ -69,6 +81,8 @@ class viewHOI(ReporterPlugin):
 		
 		Glyphs.redraw()
 
+
+	# Slider actions use the sliderUpdate function
 	@objc.IBAction
 	def slider1_(self, sender):
 		self.sliderUpdate()
@@ -85,12 +99,14 @@ class viewHOI(ReporterPlugin):
 	def slider4_(self, sender):
 		self.sliderUpdate()
 
+	# reset selection
 	@objc.IBAction
 	def button_(self, sender):
 		self.selection = []
 		self.nodeType = []
 		Glyphs.redraw()
 
+	# generate nodes in preview
 	def roundDotForPoint( self, thisPoint, markerWidth ):
 		"""
 		from Show Angled Handles by MekkaBlue
@@ -99,22 +115,18 @@ class viewHOI(ReporterPlugin):
 		myRect = NSRect( ( thisPoint.x - markerWidth * 0.5, thisPoint.y - markerWidth * 0.5 ), ( markerWidth, markerWidth ) )
 		return NSBezierPath.bezierPathWithOvalInRect_(myRect)
 
-	# (1) Adding code for showing nodes and changing color based on angle
+	# node color changes based on angle (change the 'angleTolerance' variable)
 	def nodeColor(self, nodePrev, node, nodeNext):
-
 		dx1 = node.x - nodePrev.x
 		dy1 = node.y - nodePrev.y
 		angle1 = math.degrees(math.atan2(dy1, dx1))
-
 		dx2 = nodeNext.x - node.x 
 		dy2 = nodeNext.y - node.y
 		angle2 = math.degrees(math.atan2(dy2, dx2))
-
 		diff = abs(angle2 - angle1)
 
 		if diff > 180:
 			diff = 360 - diff
-
 		if diff >= (self.angleTolerance * 2):
 			redValue = 1.0
 			greenValue = 0.0
@@ -127,8 +139,75 @@ class viewHOI(ReporterPlugin):
 
 		return (redValue, greenValue)
 
+
+	# Start sync layers defs ———————————————————————————————————————————————————————————————————————
+	# need to make currentGlyph a class variable rather than a local one
+	def getFullName(self, layerName):
+		currentGlyph = Glyphs.font.selectedLayers[0].parent
+
+		for layer in currentGlyph.layers:
+			if re.match(layerName + ".*}$", layer.name):
+				return layer.name
+
+	# Sync everything to the primary control masters V2
+	# needs to work with more paths*****
+	def syncToControl(self, aName, cName, dName, bName, hoiName):	
+		currentGlyph = Glyphs.font.selectedLayers[0].parent
+		
+		c2Name = self.getFullName(re.sub("\d", "2", cName))
+		c3Name = self.getFullName(re.sub("\d", "3", cName))
+		cName = self.getFullName(cName)
+		
+		d2Name = self.getFullName(re.sub("\d", "2", dName))
+		d3Name = self.getFullName(re.sub("\d", "3", dName))
+		dName = self.getFullName(dName)
+		bName = self.getFullName(bName)
+
+		for node in currentGlyph.layers[0].paths[0].nodes:	
+			currentGlyph.layers[c2Name].paths[0].nodes[node.index].position = currentGlyph.layers[cName].paths[0].nodes[node.index].position
+			currentGlyph.layers[c3Name].paths[0].nodes[node.index].position = currentGlyph.layers[cName].paths[0].nodes[node.index].position
+			
+			currentGlyph.layers[d2Name].paths[0].nodes[node.index].position = currentGlyph.layers[dName].paths[0].nodes[node.index].position
+			currentGlyph.layers[d3Name].paths[0].nodes[node.index].position = currentGlyph.layers[dName].paths[0].nodes[node.index].position
+			
+			currentGlyph.layers[hoiName].paths[node.index].nodes[0].position = currentGlyph.layers[aName].paths[0].nodes[node.index].position
+			currentGlyph.layers[hoiName].paths[node.index].nodes[1].position = currentGlyph.layers[cName].paths[0].nodes[node.index].position
+			currentGlyph.layers[hoiName].paths[node.index].nodes[2].position = currentGlyph.layers[dName].paths[0].nodes[node.index].position
+			currentGlyph.layers[hoiName].paths[node.index].nodes[3].position = currentGlyph.layers[bName].paths[0].nodes[node.index].position
+
+
+	# Sync everything to the respective HOI layer V2
+	# needs to work with more paths*****
+	def syncToHOI(self, aName, cName, dName, bName, hoiName):	
+		currentGlyph = Glyphs.font.selectedLayers[0].parent
+		
+		c2Name = self.getFullName(re.sub("\d", "2", cName))
+		c3Name = self.getFullName(re.sub("\d", "3", cName))
+		cName = self.getFullName(cName)
+		
+		d2Name = self.getFullName(re.sub("\d", "2", dName))
+		d3Name = self.getFullName(re.sub("\d", "3", dName))
+		dName = self.getFullName(dName)
+		bName = self.getFullName(bName)
+
+		for node in currentGlyph.layers[0].paths[0].nodes:	
+			currentGlyph.layers[aName].paths[0].nodes[node.index].position = currentGlyph.layers[hoiName].paths[node.index].nodes[0].position
+			
+			currentGlyph.layers[cName].paths[0].nodes[node.index].position = currentGlyph.layers[hoiName].paths[node.index].nodes[1].position
+			currentGlyph.layers[c2Name].paths[0].nodes[node.index].position = currentGlyph.layers[hoiName].paths[node.index].nodes[1].position
+			currentGlyph.layers[c3Name].paths[0].nodes[node.index].position = currentGlyph.layers[hoiName].paths[node.index].nodes[1].position
+			
+			currentGlyph.layers[dName].paths[0].nodes[node.index].position = currentGlyph.layers[hoiName].paths[node.index].nodes[2].position
+			currentGlyph.layers[d2Name].paths[0].nodes[node.index].position = currentGlyph.layers[hoiName].paths[node.index].nodes[2].position
+			currentGlyph.layers[d3Name].paths[0].nodes[node.index].position = currentGlyph.layers[hoiName].paths[node.index].nodes[2].position
+			
+			currentGlyph.layers[bName].paths[0].nodes[node.index].position = currentGlyph.layers[hoiName].paths[node.index].nodes[3].position
+
+	# End sync layers defs —————————————————————————————————————————————————————————————————————————
+
 		
 	def foreground(self, layer):
+		# is this necessary?
 		self.italicValue = self.slider3.floatValue()
 
 		tempInstance = layer.parent.parent.instances[0].copy()
@@ -140,89 +219,165 @@ class viewHOI(ReporterPlugin):
 		tempInstance.setInterpolationCustom2_(self.italicValue)
 		tempInstance.setInterpolationCustom3_(self.monoValue)
 
-		currentGlyph = layer.parent.name
-
-		t = NSBezierPath.bezierPath()
+		currentGlyphName = layer.parent.name
+		masterLayer = layer.parent.layers[layer.associatedMasterId]
 
 		cx1 = None
 		cy1 = None
 		cx2 = None
 		cy2 = None
 
-		tempFont = tempInstance.interpolatedFontProxy.glyphs[currentGlyph].layers[0].paths[0]
-		tx1 = tempFont.nodes[0].x
-		ty1 = tempFont.nodes[0].y
-		t.moveToPoint_(NSMakePoint(tx1, ty1))
+		# Need to deprecate this
+		tempFont = tempInstance.interpolatedFontProxy.glyphs[currentGlyphName].layers[0].paths[0]
 
-		# VF preview as fill
-		for node in layer.paths[0].nodes:
-			if node.type != "offcurve":
-				tx2 = tempFont.nodes[node.index].x
-				ty2 = tempFont.nodes[node.index].y
+		# For more than one path
+		tempFontLayer = tempInstance.interpolatedFontProxy.glyphs[currentGlyphName].layers[0]
 
-			if node.type == "line":
-				t.lineToPoint_(NSMakePoint(tx2, ty2))
-			elif node.type == "offcurve":
-				if cx1 == None:
-					cx1 = tempFont.nodes[node.index].x
-					cy1 = tempFont.nodes[node.index].y
+		pathIndex = 0
+		t = NSBezierPath.bezierPath()
+
+		# Draw glyph preview  ——————————————————————————————————————————————————————————————————————————————————————
+
+		for path in masterLayer.paths:
+			tSub = NSBezierPath.bezierPath()
+
+			tx1 = tempFontLayer.paths[pathIndex].nodes[-1].x
+			ty1 = tempFontLayer.paths[pathIndex].nodes[-1].y
+			tSub.moveToPoint_(NSMakePoint(tx1, ty1))
+
+			# VF preview as fill
+			for node in masterLayer.paths[pathIndex].nodes:
+				if node.type != "offcurve":
+					tx2 = tempFontLayer.paths[pathIndex].nodes[node.index].x
+					ty2 = tempFontLayer.paths[pathIndex].nodes[node.index].y
+
+				if node.type == "line":
+					tSub.lineToPoint_(NSMakePoint(tx2, ty2))
+				elif node.type == "offcurve":
+					if cx1 == None:
+						cx1 = tempFontLayer.paths[pathIndex].nodes[node.index].x
+						cy1 = tempFontLayer.paths[pathIndex].nodes[node.index].y
+					else:
+						cx2 = tempFontLayer.paths[pathIndex].nodes[node.index].x
+						cy2 = tempFontLayer.paths[pathIndex].nodes[node.index].y
 				else:
-					cx2 = tempFont.nodes[node.index].x
-					cy2 = tempFont.nodes[node.index].y
-			else:
-				t.curveToPoint_controlPoint1_controlPoint2_(NSMakePoint(tx2, ty2), NSMakePoint(cx1, cy1), NSMakePoint(cx2, cy2))
-				cx1 = None
-				cy1 = None
-				cx2 = None
-				cy2 = None
+					tSub.curveToPoint_controlPoint1_controlPoint2_(NSMakePoint(tx2, ty2), NSMakePoint(cx1, cy1), NSMakePoint(cx2, cy2))
+					cx1 = None
+					cy1 = None
+					cx2 = None
+					cy2 = None
 
-			tx0 = tx2
-			ty0 = ty2
+			pathIndex = pathIndex + 1
 
-		t.closePath()
-		NSColor.colorWithCalibratedRed_green_blue_alpha_(0.0, 0.0, 0.0, 0.2).set()
+			tSub.closePath()
+			t.appendBezierPath_( tSub )
+			NSColor.colorWithCalibratedRed_green_blue_alpha_(0.5, 0.5, 0.5, 0.4).set()
+
 		t.fill()
 
-		# ——————————————————————————————————————————————————————————————————————————————————————————————————————————
-		# ——————————————————————————————————————————————————————————————————————————————————————————————————————————
+		# currentState = layer.paths[0]
 
-		scale = layer.parent.parent.currentTab.scale
+		# Adding a state variable and an if statement makes this not as responsive as I'd like
+		# if re.match("HOI$", layer.name) != None:
+		# 	self.syncToHOI("Regular", "C1", "D1", "B", "B HOI")
+		# 	self.syncToHOI("Regular Oblique", "E1", "F1", "G", "G HOI")
+		# 	self.syncToHOI("Bold", "H1", "I1", "J", "J HOI")
+		# 	self.syncToHOI("Bold Oblique", "K1", "L1", "M", "M HOI")
+		# else:
+		# 	self.syncToControl("Regular", "C1", "D1", "B", "B HOI")
+		# 	self.syncToControl("Regular Oblique", "E1", "F1", "G", "G HOI")
+		# 	self.syncToControl("Bold", "H1", "I1", "J", "J HOI")
+		# 	self.syncToControl("Bold Oblique", "K1", "L1", "M", "M HOI")
 
+		# self.lastState = currentState
+
+
+
+		# Draw nodes + lines between nodes for angle/kink proofing ———————————————————————————————————————————————
 
 		p = NSBezierPath.bezierPath()
-		lineScale = 0.2 / scale
+		scale = layer.parent.parent.currentTab.scale
+		lineScale = 0.0 / scale
 		nodeScale = 8.0 / scale
 		# (1) Adding code for showing nodes and changing color based on angle
 
 		# VF preview selection
 		if self.selection == []:
-			for node in layer.paths[0].nodes:
-				if node.selected:
-					interpolatedIndex = node.index
-					self.selection.append(interpolatedIndex)
-					self.nodeType.append(node.type)
+			pLine = NSBezierPath.bezierPath()
 
-					try:
-						x1 = x0
-						y1 = y0
-					except:
-						x1 = tempFont.nodes[interpolatedIndex].x
-						y1 = tempFont.nodes[interpolatedIndex].y
+			pathIndex = 0
+			for path in masterLayer.paths:
+				pathSelection = []
+				pathNodeTypes = []
+				for node in layer.paths[pathIndex].nodes:
+					if node.selected:
+						x1 = tempFontLayer.paths[pathIndex].nodes[node.index - 1].x
+						y1 = tempFontLayer.paths[pathIndex].nodes[node.index - 1].y
+						pLine.moveToPoint_(NSMakePoint(x1, y1))
+						break
 
-					x2 = tempFont.nodes[interpolatedIndex].x
-					y2 = tempFont.nodes[interpolatedIndex].y
+				for node in layer.paths[pathIndex].nodes:
+					if node.selected:
+						interpolatedIndex = node.index
+						pathSelection.append(interpolatedIndex)
+						pathNodeTypes.append(node.type)
 
-					x0 = x2
-					y0 = y2
+						x2 = tempFontLayer.paths[pathIndex].nodes[interpolatedIndex].x
+						y2 = tempFontLayer.paths[pathIndex].nodes[interpolatedIndex].y
+
+						NSColor.blueColor().set()
+						ThisPoint = NSMakePoint(x2, y2)
+
+						# p.moveToPoint_(NSMakePoint(x1, y1))
+						pLine.lineToPoint_(NSMakePoint(x2, y2))
+						# pLine.setLineWidth_(lineScale)
+						# p.stroke()
+						p.appendBezierPath_( pLine )
+
+						pNode = NSBezierPath.bezierPath()
+
+						# (1) Adding code for showing nodes and changing color based on angle
+						pNode.appendBezierPath_( self.roundDotForPoint( ThisPoint, nodeScale ) )
+
+						# Changes node color based on angle
+						NSColor.colorWithCalibratedRed_green_blue_alpha_(
+							self.nodeColor(tempFontLayer.paths[pathIndex].nodes[interpolatedIndex - 1],  tempFontLayer.paths[pathIndex].nodes[interpolatedIndex],  tempFontLayer.paths[pathIndex].nodes[interpolatedIndex + 1])[0] ,
+							self.nodeColor(tempFontLayer.paths[pathIndex].nodes[interpolatedIndex - 1],  tempFontLayer.paths[pathIndex].nodes[interpolatedIndex],  tempFontLayer.paths[pathIndex].nodes[interpolatedIndex + 1])[1] ,
+							0.0,
+							1.0).set()
+						pNode.fill()
+
+						if node.type != "offcurve":
+							NSColor.colorWithCalibratedRed_green_blue_alpha_( 0.0, 0.0, 1.0, 1.0).set()
+							pNode.setLineWidth_(lineScale * 4)
+							pNode.stroke()
+
+				if pathSelection != []:
+					self.selection.append(pathSelection)
+					self.nodeType.append(pathNodeTypes)
+				pathIndex = pathIndex + 1
+
+		else:
+			pathIndex = 0
+			for path in masterLayer.paths:
+				pLine = NSBezierPath.bezierPath()
+				i = 0
+				x1 = tempFontLayer.paths[pathIndex].nodes[self.selection[pathIndex][-1]].x
+				y1 = tempFontLayer.paths[pathIndex].nodes[self.selection[pathIndex][-1]].y
+				pLine.moveToPoint_(NSMakePoint(x1, y1))
+				for nodeIndex in self.selection[pathIndex]:
+					interpolatedIndex = nodeIndex
+
+					x2 = tempFontLayer.paths[pathIndex].nodes[interpolatedIndex].x
+					y2 = tempFontLayer.paths[pathIndex].nodes[interpolatedIndex].y
 
 					ThisPoint = NSMakePoint(x2, y2)
 
-					p.moveToPoint_(NSMakePoint(x1, y1))
-					p.lineToPoint_(NSMakePoint(x2, y2))
-					NSColor.colorWithCalibratedRed_green_blue_alpha_( 0.0, 0.0, 1.0, 1.0).set()
-					p.setLineWidth_(lineScale)
-					p.stroke()
-					# NSGraphicsContext.setShouldAntialias_(True)
+					# p.moveToPoint_(NSMakePoint(x1, y1))
+					pLine.lineToPoint_(NSMakePoint(x2, y2))
+					# pLine.setLineWidth_(lineScale)
+					# p.stroke()
+					p.appendBezierPath_( pLine )
 
 					pNode = NSBezierPath.bezierPath()
 
@@ -231,62 +386,24 @@ class viewHOI(ReporterPlugin):
 
 					# Changes node color based on angle
 					NSColor.colorWithCalibratedRed_green_blue_alpha_(
-						self.nodeColor(tempFont.nodes[interpolatedIndex - 1],  tempFont.nodes[interpolatedIndex],  tempFont.nodes[interpolatedIndex + 1])[0] ,
-						self.nodeColor(tempFont.nodes[interpolatedIndex - 1],  tempFont.nodes[interpolatedIndex],  tempFont.nodes[interpolatedIndex + 1])[1] ,
+						self.nodeColor(tempFontLayer.paths[pathIndex].nodes[interpolatedIndex - 1],  tempFontLayer.paths[pathIndex].nodes[interpolatedIndex],  tempFontLayer.paths[pathIndex].nodes[interpolatedIndex + 1])[0] ,
+						self.nodeColor(tempFontLayer.paths[pathIndex].nodes[interpolatedIndex - 1],  tempFontLayer.paths[pathIndex].nodes[interpolatedIndex],  tempFontLayer.paths[pathIndex].nodes[interpolatedIndex + 1])[1] ,
 						0.0,
 						1.0).set()
-					# NSColor.colorWithCalibratedRed_green_blue_alpha_( 0.0, 0.0, 1.0, 1.0).set()
 					pNode.fill()
 
-					if node.type != "offcurve":
+					if self.nodeType[pathIndex][i] != "offcurve":
 						NSColor.colorWithCalibratedRed_green_blue_alpha_( 0.0, 0.0, 1.0, 1.0).set()
 						pNode.setLineWidth_(lineScale * 4)
 						pNode.stroke()
 
-		else:
-			i = 0
-			for nodeIndex in self.selection:
-				interpolatedIndex = nodeIndex
-				try:
-					x1 = x0
-					y1 = y0
-				except:
-					x1 = tempInstance.interpolatedFontProxy.glyphs[currentGlyph].layers[0].paths[0].nodes[interpolatedIndex].x
-					y1 = tempInstance.interpolatedFontProxy.glyphs[currentGlyph].layers[0].paths[0].nodes[interpolatedIndex].y
+					i = i + 1
 
-				x2 = tempInstance.interpolatedFontProxy.glyphs[currentGlyph].layers[0].paths[0].nodes[interpolatedIndex].x
-				y2 = tempInstance.interpolatedFontProxy.glyphs[currentGlyph].layers[0].paths[0].nodes[interpolatedIndex].y
+				pathIndex = pathIndex + 1
 
-				x0 = x2
-				y0 = y2
-
-				ThisPoint = NSMakePoint(x2, y2)
-
-				p.moveToPoint_(NSMakePoint(x1, y1))
-				p.lineToPoint_(NSMakePoint(x2, y2))
-				NSColor.colorWithCalibratedRed_green_blue_alpha_( 0.0, 0.0, 1.0, 1.0).set()
-				p.setLineWidth_(lineScale)
-				p.stroke()
-
-				pNode = NSBezierPath.bezierPath()
-
-				# (1) Adding code for showing nodes and changing color based on angle
-				pNode.appendBezierPath_( self.roundDotForPoint( ThisPoint, nodeScale ) )
-
-				# Changes node color based on angle
-				NSColor.colorWithCalibratedRed_green_blue_alpha_(
-					self.nodeColor(tempFont.nodes[interpolatedIndex - 1],  tempFont.nodes[interpolatedIndex],  tempFont.nodes[interpolatedIndex + 1])[0] ,
-					self.nodeColor(tempFont.nodes[interpolatedIndex - 1],  tempFont.nodes[interpolatedIndex],  tempFont.nodes[interpolatedIndex + 1])[1] ,
-					0.0,
-					1.0).set()
-				pNode.fill()
-
-				if self.nodeType[i] != "offcurve":
-					NSColor.colorWithCalibratedRed_green_blue_alpha_( 0.0, 0.0, 1.0, 1.0).set()
-					pNode.setLineWidth_(lineScale * 4)
-					pNode.stroke()
-
-				i = i + 1
+		NSColor.blueColor().set()
+		p.setLineWidth_(lineScale)
+		p.stroke()
 
 	# def inactiveLayer(self, layer):
 	# 	NSColor.redColor().set()
@@ -303,6 +420,7 @@ class viewHOI(ReporterPlugin):
 	# 	if layer.components:
 	# 		for component in layer.components:
 	# 			component.bezierPath.fill()
+
 	
 	def doSomething(self):
 		print 'Just did something'
