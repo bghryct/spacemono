@@ -1,0 +1,12 @@
+red=Italic HOI
+orange=
+brown=
+yellow=
+lightGreen=Add .rvrn alts
+darkGreen=
+lightBlue=Needs Components
+darkBlue=
+purple=
+magenta=
+lightGray=
+charcoal=
